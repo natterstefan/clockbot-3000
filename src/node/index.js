@@ -1,7 +1,9 @@
 const client = require('./client');
 const config = require('./config');
+const os = require('os');
 
 client.on('connect', () => {
-  client.publish(config.TOPIC, 'Hello mqtt');
+  const message = 'Hello mqtt'
+  client.publish(config.TOPIC, os.hostname() + ': ' + message);
   client.end();
 });
