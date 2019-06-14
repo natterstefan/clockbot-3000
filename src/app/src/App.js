@@ -15,6 +15,7 @@ const client = mqtt.connect('ws://' + process.env.REACT_APP_HOST)
  */
 function App() {
   const [ power, setPower ] = useState(true)
+  const [ text, setText ] = useState('#ummahüsla')
 
   useEffect(() => {
     if (!client.connected) {
@@ -35,16 +36,18 @@ function App() {
     }
   }, [])
 
+  const onChange = (e) => {
+    setText(e.target.value)
+  }
+
   const onClick = () => {
     setPower(!power)
     client.publish(process.env.REACT_APP_TOPIC, JSON.stringify({ power: !power }))
   }
 
   const onApp = () => {
-    const text = '#ummahüsla'
-    
     // NOTE: change the ScrollSpeed in the webinterface (https://docs.blueforcer.de/#/v2/web)
-    // to 5000 for better results
+    // to 100 for better results
     client.publish(process.env.REACT_APP_TOPIC_APP, JSON.stringify({
       name: process.env.REACT_APP_NAME,
       force: true,
@@ -65,7 +68,7 @@ function App() {
         // },
         {
           "type": "text",
-          "string": "#rockIt",
+          "string": "#rockit :)",
           "position": [0, 0],
           "color": [255, 0, 0],
         },
@@ -90,9 +93,13 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <button onClick={onClick}>Turn {power ? 'Off' : 'On'}</button>
-        <button onClick={onApp}>Draw #ummahüsla</button>
-        <button onClick={onDraw}>Draw #rockit</button>
+        <div class="buttons">
+          <button onClick={onClick}>Turn {power ? 'Off' : 'On'}</button>
+          <button onClick={onDraw}>Show #rockit</button>
+        </div>
+        <h2>Enter Text and send to Clock</h2>
+        <input type="text" value={text} onChange={onChange} />
+        <button onClick={onApp}>Send Text</button>
       </header>
     </div>
   );
