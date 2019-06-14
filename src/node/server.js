@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // Only for demonstration. Will be replaced by AWTRIX server
 
 const client = require('./client')
@@ -9,7 +10,7 @@ client.subscribe([config.TOPIC, config.TOPIC_DRAW, config.TOPIC_APP], err => {
 
 client.on('message', (topic, message) => {
   // message is Buffer
-  console.log(Date.now(), message.toString())
+  console.log(Date.now(), topic, message.toString())
 })
 
 console.log('server is running 🚀')
