@@ -1,3 +1,8 @@
+* {
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+}
+
 .App {
   text-align: center;
 }
@@ -30,4 +35,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  color: darkblue;
+  padding: 20px;
+  background: #fff;
+  border: 0;
+  border-radius: 10%;
+  margin-top: 20px;
+}
+
+button:hover {
+  color: #fff;
+  background: darkblue;
 }
