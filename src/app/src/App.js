@@ -93,13 +93,16 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <div class="buttons">
+        <div className="buttons">
           <button onClick={onClick}>Turn {power ? 'Off' : 'On'}</button>
           <button onClick={onDraw}>Show #rockit</button>
         </div>
         <h2>Enter Text and send to Clock</h2>
         <input type="text" value={text} onChange={onChange} />
         <button onClick={onApp}>Send Text</button>
+        <div className="footer">
+          created with ♥ by Team Awesome3000
+        </div>
       </header>
     </div>
   );

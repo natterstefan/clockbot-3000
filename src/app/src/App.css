@@ -61,9 +61,16 @@ button + button {
 input {
   border: 0;
   padding: 10px;
+  outline: none;
 }
 
 h2 {
   color: #fff;
   margin-top: 40px;
+}
+
+.footer {
+  margin-top: 50px;
+  color: #fff;
+  font-size: 14px;
 }
