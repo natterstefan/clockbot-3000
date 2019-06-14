@@ -104,11 +104,11 @@ function App() {
         <div className="buttons">
           <button onClick={onClick}>Turn {power ? 'Off' : 'On'}</button>
           <button onClick={onDraw}>Show #rockit</button>
+          <button onClick={onAnimateText}>Animate text</button>
         </div>
         <h2>Enter Text and send to Clock</h2>
         <input type="text" value={text} onChange={onChange} />
         <button onClick={onApp}>Send Text</button>
-        <button onClick={onAnimateText}>Animate text</button>
         <div className="footer">created with ♥ by Team Awesome3000</div>
       </header>
     </div>

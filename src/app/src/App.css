@@ -9,7 +9,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 35vmin;
   pointer-events: none;
   border-radius: 20%;
   margin-bottom: 20px;
@@ -47,6 +47,7 @@ button {
   border: 0;
   border-radius: 10%;
   margin-top: 20px;
+  width: 180px;
 }
 
 button:hover {
@@ -54,8 +55,19 @@ button:hover {
   background: darkblue;
 }
 
-button + button {
-  margin-left: 20px;
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .buttons {
+    display: block;
+  }
+
+  button + button {
+    margin-left: 20px;
+  }
 }
 
 input {
