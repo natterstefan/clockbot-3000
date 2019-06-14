@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 // image source: https://www.pexels.com/photo/man-wearing-black-and-blue-mask-costume-1473215/
 import logo from './clockbot3000.jpg';
 import mqtt from 'mqtt/dist/mqtt.min.js'
+import drawAnimatedText from './drawAnimatedText'
 import './App.css';
 
 // docs: https://www.npmjs.com/package/mqtt#browser
@@ -58,6 +59,13 @@ function App() {
     }))
   }
 
+  const onAnimateText = () => {
+    client.publish(
+      process.env.REACT_APP_TOPIC_DRAW,
+      JSON.stringify({draw: drawAnimatedText(text)})
+    );
+  };
+
   const onDraw = () => {
     client.publish(process.env.REACT_APP_TOPIC_DRAW, JSON.stringify({
       "repeat": 2,
@@ -100,9 +108,8 @@ function App() {
         <h2>Enter Text and send to Clock</h2>
         <input type="text" value={text} onChange={onChange} />
         <button onClick={onApp}>Send Text</button>
-        <div className="footer">
-          created with ♥ by Team Awesome3000
-        </div>
+        <button onClick={onAnimateText}>Animate text</button>
+        <div className="footer">created with ♥ by Team Awesome3000</div>
       </header>
     </div>
   );
