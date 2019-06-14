@@ -11,3 +11,5 @@ client.on('message', (topic, message) => {
   // message is Buffer
   console.log(Date.now(), message.toString());
 });
+
+console.log('server is running 🚀')

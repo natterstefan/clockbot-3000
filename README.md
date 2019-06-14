@@ -6,6 +6,22 @@
 
 Stay tuned :alarm_clock:.
 
+## Setup
+
+Setup the react app with:
+
+```bash
+cd src/app
+yarn
+```
+
+Setup the node app with:
+
+```bash
+cd src/node
+yarn
+```
+
 ## How to get started
 
 Start the MQTT Broker:
@@ -13,4 +29,17 @@ Start the MQTT Broker:
 ```bash
 cd docker
 docker-compose up -d
+```
+
+Now, start the node app and react server:
+
+```bash
+# receives and logs the messages in the terminal
+cd src/node && node server
+
+# starts the browser app and can send a message to the mqtt broker
+cd src/app && yarn start
+
+# sends a message (in this case "hello") from the terminal to the mqtt broker
+cd src/node && node index hello
 ```
