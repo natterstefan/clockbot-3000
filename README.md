@@ -28,6 +28,11 @@ cd src/node
 yarn
 ```
 
+## AWTRIX 2.0
+
+For this project we are installing and setting up an AWTRIX 2.0 (AWesome maTRIX)
+DIY intelligent clock. The documentation and partslist is available here: [https://docs.blueforcer.de/#/v2/README](https://docs.blueforcer.de/#/v2/README)
+
 ## How to get started
 
 Start the MQTT Broker:
