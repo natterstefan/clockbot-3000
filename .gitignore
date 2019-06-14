@@ -8,6 +8,9 @@ tmp
 # Logs and Testing
 *.log
 
+# Docker
+mosquitto.db
+
 # Development
 .gradle/
 **/node_modules
