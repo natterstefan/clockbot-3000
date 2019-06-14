@@ -52,7 +52,7 @@ function App() {
     client.publish(process.env.REACT_APP_TOPIC_APP, JSON.stringify({
       name: process.env.REACT_APP_NAME,
       force: true,
-      icon: 6,
+      icon: 670, // rocket icon
       text,
       color: [255, 0, 0],
       count: 5
@@ -104,12 +104,16 @@ function App() {
         <div className="buttons">
           <button onClick={onClick}>Turn {power ? 'Off' : 'On'}</button>
           <button onClick={onDraw}>Show #rockit</button>
+        </div>
+        <h2>Enter Text and Send to Clock</h2>
+        <input type="text" value={text} onChange={onChange} />
+        <div className="buttons">
+          <button onClick={onApp}>Send Text</button>
           <button onClick={onAnimateText}>Animate text</button>
         </div>
-        <h2>Enter Text and send to Clock</h2>
-        <input type="text" value={text} onChange={onChange} />
-        <button onClick={onApp}>Send Text</button>
-        <div className="footer">created with ♥ by Team Awesome3000</div>
+        <div className="footer">
+          created with ♥ by <a href="http://bit.ly/2X8YIsc" rel="noopener noreferrer" target="_blank">Team Awesome3000</a>
+        </div>
       </header>
     </div>
   );

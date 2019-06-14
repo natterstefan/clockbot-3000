@@ -42,12 +42,12 @@
 button {
   outline: none;
   cursor: pointer;
-  padding: 20px;
+  padding: 10px;
   background: #fff;
   border: 0;
   border-radius: 10%;
-  margin-top: 20px;
   width: 180px;
+  margin-top: 20px;
 }
 
 button:hover {
@@ -65,7 +65,7 @@ button:hover {
     display: block;
   }
 
-  button + button {
+  .buttons button + button {
     margin-left: 20px;
   }
 }
@@ -74,6 +74,7 @@ input {
   border: 0;
   padding: 10px;
   outline: none;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -85,4 +86,13 @@ h2 {
   margin-top: 50px;
   color: #fff;
   font-size: 14px;
+  letter-spacing: 1.5px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #fff;
 }
