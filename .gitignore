@@ -17,6 +17,7 @@ mosquitto.db
 /build
 /dist
 /sandbox/
+.env
 
 # Build
 build

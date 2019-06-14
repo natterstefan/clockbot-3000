@@ -42,10 +42,11 @@ cd docker
 docker-compose up -d
 ```
 
-Before you start the apps change the IPs in the `.env` files:
+Before you start create `.env` files from the `.env.example` ones, and change
+the IPs in the `.env` files:
 
-- [.env for app](src/app/.env)
-- [.env for node](src/node/.env)
+- [.env.example for app](src/app/.env.example)
+- [.env.example for node](src/node/.env.example)
 
 Now, start the node app and react server:
 
