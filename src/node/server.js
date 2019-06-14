@@ -3,7 +3,7 @@
 const client = require('./client')
 const config = require('./config')
 
-client.subscribe([config.TOPIC, config.TOPIC_DRAW], err => {
+client.subscribe([config.TOPIC, config.TOPIC_DRAW, config.TOPIC_APP], err => {
   if (err) throw err
 })
 
