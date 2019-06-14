@@ -1,0 +1,21 @@
+# OS, IDE, ...
+.DS_Store
+.idea
+*.iml
+.project
+tmp
+
+# Logs and Testing
+*.log
+
+# Development
+.gradle/
+**/node_modules
+/build
+/dist
+/sandbox/
+
+# Build
+build
+dist
+*.tgz
