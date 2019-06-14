@@ -9,6 +9,5 @@ client.subscribe(config.TOPIC, err => {
 
 client.on('message', (topic, message) => {
   // message is Buffer
-  console.log(message.toString());
-  client.end();
+  console.log(Date.now(), message.toString());
 });
