@@ -30,7 +30,7 @@ function App() {
     }
 
     return () => {
-      // client.unsubscribe([process.env.REACT_APP_TOPIC, process.env.REACT_APP_TOPIC_DRAW])
+      // client.unsubscribe([process.env.REACT_APP_TOPIC, process.env.REACT_APP_TOPIC_DRAW, REACT_APP_TOPIC_APP])
       client.end()
     }
   }, [])
@@ -59,10 +59,10 @@ function App() {
     client.publish(process.env.REACT_APP_TOPIC_DRAW, JSON.stringify({
       "repeat": 2,
       "draw": [
-        {
-          "type": "fill",
-          "color": [100, 100, 100]
-        },
+        // {
+        //   "type": "fill",
+        //   "color": [100, 100, 100]
+        // },
         {
           "type": "text",
           "string": "#rockIt",
