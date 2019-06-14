@@ -8,6 +8,12 @@ Stay tuned :alarm_clock:.
 
 ## Setup
 
+Install main dependencies
+
+```bash
+yarn
+```
+
 Setup the react app with:
 
 ```bash
