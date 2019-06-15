@@ -3,10 +3,10 @@ function degreesToRadiant(degrees) {
 }
 
 module.exports = function drawAnalogClock() {
-  const startX = 0
+  const startX = 11
   const startY = 0
   const radius = 3
-  const center = getPos(4, 4) // eslint-disable-line
+  const center = [4, 4]
   const now = new Date()
 
   function getPos(x, y) {
@@ -21,7 +21,7 @@ module.exports = function drawAnalogClock() {
 
     return {
       type: 'line',
-      start: center,
+      start: getPos(center[0], center[1]),
       end: getPos(center[0] + x, center[1] - y),
       color,
     }
@@ -34,7 +34,7 @@ module.exports = function drawAnalogClock() {
     {
       type: 'circle',
       radius,
-      position: center,
+      position: getPos(center[0], center[1]),
       color: [255, 255, 255],
     },
     drawHand({
