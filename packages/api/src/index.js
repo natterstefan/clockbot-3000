@@ -44,6 +44,20 @@ app.post('/app', (request, res) => {
       )
       break
 
+    case 'song':
+        client.publish(
+          process.env.TOPIC_APP,
+          JSON.stringify({
+            name: process.env.TOPIC_APP,
+            force: true,
+            icon: 368, // music icon
+            text: request.body.data,
+            color: [0, 255, 0],
+            count: 1,
+          }),
+        )
+        break
+
     case 'draw':
       client.publish(process.env.TOPIC_DRAW, JSON.stringify(request.body.data))
       break
@@ -73,7 +87,7 @@ app.post('/app', (request, res) => {
 })
 
 // Run the server!
-app.listen(7000, err => {
+app.listen(8000, err => {
   if (err) {
     throw err
   }

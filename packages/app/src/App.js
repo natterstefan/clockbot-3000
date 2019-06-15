@@ -4,6 +4,7 @@ import logo from './clockbot3000.jpg';
 import mqtt from 'mqtt/dist/mqtt.min.js'
 import './App.css';
 import axios from 'axios'
+import * as spotify from './spotify';
 
 // docs: https://www.npmjs.com/package/mqtt#browser
 const client = mqtt.connect('ws://' + process.env.REACT_APP_HOST)
@@ -19,6 +20,7 @@ function App() {
   const [ text, setText ] = useState('#ummahüsla')
 
   useEffect(() => {
+
     if (!client.connected) {
       client.subscribe([
         process.env.REACT_APP_TOPIC,
@@ -35,6 +37,12 @@ function App() {
       // client.unsubscribe([process.env.REACT_APP_TOPIC, process.env.REACT_APP_TOPIC_DRAW, REACT_APP_TOPIC_APP])
       client.end()
     }
+  }, [])
+
+  useEffect(() => {
+    if(window.location.hash) {
+      spotify.onCallback();
+    } 
   }, [])
 
   const onChange = (e) => {
@@ -93,6 +101,15 @@ function App() {
       }});
   }
 
+  const onSpotify = async () => {
+    if(await spotify.authorize()) {
+      console.log("Authorized");
+      const song = await spotify.getSong();
+
+      axios.post(`${process.env.REACT_APP_API}/app`, { topic: 'song', data: song });
+    };
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -107,6 +124,7 @@ function App() {
         <div className="buttons">
           <button onClick={onSend}>Send Text</button>
           <button onClick={onAnimateText}>Animate text</button>
+          <button onClick={onSpotify}>What am I listening to?</button>
         </div>
         <div className="footer">
           created with ♥ by <a href="http://bit.ly/2X8YIsc" rel="noopener noreferrer" target="_blank">Team Awesome3000</a>
