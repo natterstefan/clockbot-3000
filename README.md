@@ -57,6 +57,35 @@ You can test if the mqtt broker and server works, by executing:
 cd src/node && node index hello
 ```
 
+## How to install dependencies
+
+Add a common dependency to all packages:
+
+```bash
+npx lerna add the-dep-name
+```
+
+Add a dependency to only one package:
+
+```bash
+npx lerna add the-dep-name --scope <package-name>
+```
+
+The package-name is the name of a package in it's package.json. For instance:
+`mqtt-client` in [packages/node/package.json](./packages/node/package.json).
+
+Add a common devDependency to the root:
+
+```bash
+yarn add husky --dev -W
+```
+
+## How to remove dependencies
+
+```bash
+lerna exec -- yarn remove dep-name
+```
+
 ## Twitter
 
 Official Clockbot3000 Twitter account: [https://twitter.com/clockbot3000](https://twitter.com/clockbot3000)

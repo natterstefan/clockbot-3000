@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Stay tuned",
   "main": "src/node/server.js",
+  "private": true,
   "scripts": {
     "clean": "lerna clean",
     "postinstall": "lerna bootstrap",
@@ -11,6 +12,9 @@
     "contributors:generate": "all-contributors generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/natterstefan/clockbot-3000"
