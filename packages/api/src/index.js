@@ -36,7 +36,6 @@ app.post('/app', (request, res) => {
 
   res.send({
     status: 'OK',
-    connected: client.connected,
   })
 })
 
@@ -45,7 +44,6 @@ app.post('/draw', (request, res) => {
 
   res.send({
     status: 'OK',
-    connected: client.connected,
   })
 })
 
@@ -56,9 +54,7 @@ app.post('/animate', (request, res) => {
   )
 
   res.send({
-    data: request.body.data,
     status: 'OK',
-    connected: client.connected,
   })
 })
 
@@ -70,7 +66,6 @@ app.post('/analog-clock', (request, res) => {
 
   res.send({
     status: 'OK',
-    connected: client.connected,
   })
 })
 
