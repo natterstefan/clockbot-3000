@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import logo from './clockbot3000.jpg';
 import mqtt from 'mqtt/dist/mqtt.min.js'
 import drawAnimatedText from './drawAnimatedText'
+import drawAnalogClock from './drawAnalogClock';
 import './App.css';
 import axios from 'axios'
 
@@ -28,7 +29,7 @@ function App() {
       ])
 
       client.on("message", function (topic, payload) {
-        console.log([topic, payload].join(": "))
+        console.log([topic, JSON.stringify( JSON.parse(payload), null, 2)].join(": "))
       })
     }
 
@@ -57,6 +58,13 @@ function App() {
     client.publish(
       process.env.REACT_APP_TOPIC_DRAW,
       JSON.stringify({draw: drawAnimatedText(text)})
+    );
+  };
+
+  const onShowAnalogClock = () => {
+    client.publish(
+      process.env.REACT_APP_TOPIC_DRAW,
+      JSON.stringify({draw: drawAnalogClock()})
     );
   };
 
@@ -98,6 +106,7 @@ function App() {
         <div className="buttons">
           <button onClick={onClick}>Turn {power ? 'Off' : 'On'}</button>
           <button onClick={onDraw}>Show #rockit</button>
+          <button onClick={onShowAnalogClock}>Show analog clock</button>
         </div>
         <h2>Enter Text and Send to Clock</h2>
         <input type="text" value={text} onChange={onChange} />
