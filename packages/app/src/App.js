@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 // image source: https://www.pexels.com/photo/man-wearing-black-and-blue-mask-costume-1473215/
 import logo from './clockbot3000.jpg';
 import mqtt from 'mqtt/dist/mqtt.min.js'
-import drawAnimatedText from './drawAnimatedText'
-import drawAnalogClock from './drawAnalogClock';
 import './App.css';
 import axios from 'axios'
 
@@ -48,55 +46,50 @@ function App() {
     client.publish(process.env.REACT_APP_TOPIC, JSON.stringify({ power: !power }))
   }
 
-  const onApp = () => {
+  const onSend = () => {
     // NOTE: change the ScrollSpeed in the webinterface (https://docs.blueforcer.de/#/v2/web)
     // to 100 for better results
-    axios.post(`${process.env.REACT_APP_API}/app`, { text });
+    axios.post(`${process.env.REACT_APP_API}/app`, { data: text });
   }
 
   const onAnimateText = () => {
-    client.publish(
-      process.env.REACT_APP_TOPIC_DRAW,
-      JSON.stringify({draw: drawAnimatedText(text)})
-    );
+    axios.post(`${process.env.REACT_APP_API}/animate`, { data: text });
   };
 
   const onShowAnalogClock = () => {
-    client.publish(
-      process.env.REACT_APP_TOPIC_DRAW,
-      JSON.stringify({draw: drawAnalogClock()})
-    );
+    axios.post(`${process.env.REACT_APP_API}/analog-clock`);
   };
 
   const onDraw = () => {
-    client.publish(process.env.REACT_APP_TOPIC_DRAW, JSON.stringify({
-      "repeat": 2,
-      "draw": [
-        // {
-        //   "type": "fill",
-        //   "color": [100, 100, 100]
-        // },
-        {
-          "type": "text",
-          "string": "#rockit :)",
-          "position": [0, 0],
-          "color": [255, 0, 0],
-        },
-        {
-          "type": "show"
-        },
-        {
-          "type": "wait",
-          "ms": 5000
-        },
-        {
-          "type": "clear"
-        },
-        {
-          "type": "exit"
-        }
-      ]
-    }))
+    axios.post(`${process.env.REACT_APP_API}/draw`, {
+      data: {
+        "repeat": 2,
+        "draw": [
+          // {
+          //   "type": "fill",
+          //   "color": [100, 100, 100]
+          // },
+          {
+            "type": "text",
+            "string": "#rockit :)",
+            "position": [0, 0],
+            "color": [255, 0, 0],
+          },
+          {
+            "type": "show"
+          },
+          {
+            "type": "wait",
+            "ms": 5000
+          },
+          {
+            "type": "clear"
+          },
+          {
+            "type": "exit"
+          }
+        ]
+      }});
   }
 
   return (
@@ -111,7 +104,7 @@ function App() {
         <h2>Enter Text and Send to Clock</h2>
         <input type="text" value={text} onChange={onChange} />
         <div className="buttons">
-          <button onClick={onApp}>Send Text</button>
+          <button onClick={onSend}>Send Text</button>
           <button onClick={onAnimateText}>Animate text</button>
         </div>
         <div className="footer">

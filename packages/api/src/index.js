@@ -5,6 +5,9 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
+const drawAnimatedText = require('./draw-animated-text')
+const drawAnalogClock = require('./draw-analog-clock')
+
 require('dotenv').config({ path: path.resolve(__dirname, '../../node/.env') })
 
 const app = express()
@@ -25,10 +28,46 @@ app.post('/app', (request, res) => {
       name: process.env.TOPIC_APP,
       force: true,
       icon: 670, // rocket icon
-      text: request.body.text,
+      text: request.body.data,
       color: [255, 0, 0],
       count: 5,
     }),
+  )
+
+  res.send({
+    status: 'OK',
+    connected: client.connected,
+  })
+})
+
+app.post('/draw', (request, res) => {
+  client.publish(
+    process.env.REACT_APP_TOPIC_DRAW,
+    JSON.stringify(request.body.data),
+  )
+
+  res.send({
+    status: 'OK',
+    connected: client.connected,
+  })
+})
+
+app.post('/animate', (request, res) => {
+  client.publish(
+    process.env.REACT_APP_TOPIC_DRAW,
+    JSON.stringify({ draw: drawAnimatedText(request.body.data) }),
+  )
+
+  res.send({
+    status: 'OK',
+    connected: client.connected,
+  })
+})
+
+app.post('/analog-clock', (request, res) => {
+  client.publish(
+    process.env.REACT_APP_TOPIC_DRAW,
+    JSON.stringify({ draw: drawAnalogClock() }),
   )
 
   res.send({
