@@ -1,0 +1,34 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "scripts": {
+    "start": "nodemon .",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "author": "Stefan Natter <stefan@natter.at>",
+  "homepage": "https://github.com/natterstefan/clockbot-3000/tree/master/packages/api#readme",
+  "license": "MIT",
+  "main": "src/index.js",
+  "directories": {
+    "src": "src"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/natterstefan/clockbot-3000"
+  },
+  "bugs": {
+    "url": "https://github.com/natterstefan/clockbot-3000/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "mqtt": "^3.0.0",
+    "nodemon": "^1.19.1"
+  }
+}

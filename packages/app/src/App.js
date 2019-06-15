@@ -4,6 +4,7 @@ import logo from './clockbot3000.jpg';
 import mqtt from 'mqtt/dist/mqtt.min.js'
 import drawAnimatedText from './drawAnimatedText'
 import './App.css';
+import axios from 'axios'
 
 // docs: https://www.npmjs.com/package/mqtt#browser
 const client = mqtt.connect('ws://' + process.env.REACT_APP_HOST)
@@ -49,14 +50,7 @@ function App() {
   const onApp = () => {
     // NOTE: change the ScrollSpeed in the webinterface (https://docs.blueforcer.de/#/v2/web)
     // to 100 for better results
-    client.publish(process.env.REACT_APP_TOPIC_APP, JSON.stringify({
-      name: process.env.REACT_APP_NAME,
-      force: true,
-      icon: 670, // rocket icon
-      text,
-      color: [255, 0, 0],
-      count: 5
-    }))
+    axios.post(`${process.env.REACT_APP_API}/app`, { text });
   }
 
   const onAnimateText = () => {
