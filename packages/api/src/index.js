@@ -41,10 +41,7 @@ app.post('/app', (request, res) => {
 })
 
 app.post('/draw', (request, res) => {
-  client.publish(
-    process.env.REACT_APP_TOPIC_DRAW,
-    JSON.stringify(request.body.data),
-  )
+  client.publish(process.env.TOPIC_DRAW, JSON.stringify(request.body.data))
 
   res.send({
     status: 'OK',
@@ -54,11 +51,12 @@ app.post('/draw', (request, res) => {
 
 app.post('/animate', (request, res) => {
   client.publish(
-    process.env.REACT_APP_TOPIC_DRAW,
+    process.env.TOPIC_DRAW,
     JSON.stringify({ draw: drawAnimatedText(request.body.data) }),
   )
 
   res.send({
+    data: request.body.data,
     status: 'OK',
     connected: client.connected,
   })
@@ -66,7 +64,7 @@ app.post('/animate', (request, res) => {
 
 app.post('/analog-clock', (request, res) => {
   client.publish(
-    process.env.REACT_APP_TOPIC_DRAW,
+    process.env.TOPIC_DRAW,
     JSON.stringify({ draw: drawAnalogClock() }),
   )
 
