@@ -46,6 +46,10 @@ function App() {
     axios.post(`${process.env.REACT_APP_API}/app`, { topic: 'power', data: !power });
   }
 
+  const onJoke = () => {
+    axios.post(`${process.env.REACT_APP_API}/jokes`);
+  }
+
   const onSend = () => {
     // NOTE: change the ScrollSpeed in the webinterface (https://docs.blueforcer.de/#/v2/web)
     // to 100 for better results
@@ -101,6 +105,7 @@ function App() {
           <button onClick={onClick}>Turn {power ? 'Off' : 'On'}</button>
           <button onClick={onDraw}>Show #rockit</button>
           <button onClick={onShowAnalogClock}>Show analog clock</button>
+          <button onClick={onJoke}>Tell me a joke</button>
         </div>
         <h2>Enter Text and Send to Clock</h2>
         <input type="text" value={text} onChange={onChange} />

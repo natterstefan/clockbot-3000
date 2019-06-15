@@ -1,5 +1,6 @@
 const path = require('path')
 const mqtt = require('mqtt')
+const axios = require('axios')
 
 const express = require('express')
 const cors = require('cors')
@@ -72,8 +73,33 @@ app.post('/app', (request, res) => {
   })
 })
 
+app.post(
+  '/jokes',
+  async (req, res, next) => {
+    const result = await axios.get(
+      'https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random',
+      {
+        headers: {
+          'X-RapidAPI-Host': 'matchilling-chuck-norris-jokes-v1.p.rapidapi.com',
+          'X-RapidAPI-Key': process.env.RAPID_API_TOKEN,
+          accept: 'application/json',
+        },
+      },
+    )
+
+    req.joke = result.data.value
+    next()
+  },
+  (req, res) => {
+    client.publish(process.env.TOPIC_APP, JSON.stringify({ text: req.joke }))
+    res.send({
+      status: 'OK',
+    })
+  },
+)
+
 // Run the server!
-app.listen(7000, err => {
+app.listen(8001, err => {
   if (err) {
     throw err
   }
