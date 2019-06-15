@@ -22,47 +22,50 @@ const client = mqtt.connect(`mqtt://${process.env.HOST}`)
 
 // Declare a route
 app.post('/app', (request, res) => {
-  client.publish(
-    process.env.TOPIC_APP,
-    JSON.stringify({
-      name: process.env.TOPIC_APP,
-      force: true,
-      icon: 670, // rocket icon
-      text: request.body.data,
-      color: [255, 0, 0],
-      count: 5,
-    }),
-  )
+  switch (request.body.topic) {
+    case 'power':
+      client.publish(
+        process.env.TOPIC,
+        JSON.stringify({ power: request.body.data }),
+      )
+      break
 
-  res.send({
-    status: 'OK',
-  })
-})
+    case 'app':
+      client.publish(
+        process.env.TOPIC_APP,
+        JSON.stringify({
+          name: process.env.TOPIC_APP,
+          force: true,
+          icon: 670, // rocket icon
+          text: request.body.data,
+          color: [255, 0, 0],
+          count: 5,
+        }),
+      )
+      break
 
-app.post('/draw', (request, res) => {
-  client.publish(process.env.TOPIC_DRAW, JSON.stringify(request.body.data))
+    case 'draw':
+      client.publish(process.env.TOPIC_DRAW, JSON.stringify(request.body.data))
+      break
 
-  res.send({
-    status: 'OK',
-  })
-})
+    case 'animate':
+      client.publish(
+        process.env.TOPIC_DRAW,
+        JSON.stringify({ draw: drawAnimatedText(request.body.data) }),
+      )
+      break
 
-app.post('/animate', (request, res) => {
-  client.publish(
-    process.env.TOPIC_DRAW,
-    JSON.stringify({ draw: drawAnimatedText(request.body.data) }),
-  )
+    case 'analog-clock':
+      client.publish(
+        process.env.TOPIC_DRAW,
+        JSON.stringify({ draw: drawAnalogClock() }),
+      )
+      break
 
-  res.send({
-    status: 'OK',
-  })
-})
-
-app.post('/analog-clock', (request, res) => {
-  client.publish(
-    process.env.TOPIC_DRAW,
-    JSON.stringify({ draw: drawAnalogClock() }),
-  )
+    default:
+      res.status(404).send({ status: 'Topic not found' })
+      break
+  }
 
   res.send({
     status: 'OK',

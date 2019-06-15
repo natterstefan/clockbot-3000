@@ -43,25 +43,26 @@ function App() {
 
   const onClick = () => {
     setPower(!power)
-    client.publish(process.env.REACT_APP_TOPIC, JSON.stringify({ power: !power }))
+    axios.post(`${process.env.REACT_APP_API}/app`, { topic: 'power', data: !power });
   }
 
   const onSend = () => {
     // NOTE: change the ScrollSpeed in the webinterface (https://docs.blueforcer.de/#/v2/web)
     // to 100 for better results
-    axios.post(`${process.env.REACT_APP_API}/app`, { data: text });
+    axios.post(`${process.env.REACT_APP_API}/app`, { topic: 'app', data: text });
   }
 
   const onAnimateText = () => {
-    axios.post(`${process.env.REACT_APP_API}/animate`, { data: text });
+    axios.post(`${process.env.REACT_APP_API}/app`, { topic: 'animate', data: text });
   };
 
   const onShowAnalogClock = () => {
-    axios.post(`${process.env.REACT_APP_API}/analog-clock`);
+    axios.post(`${process.env.REACT_APP_API}/app`, { topic: 'analog-clock' });
   };
 
   const onDraw = () => {
-    axios.post(`${process.env.REACT_APP_API}/draw`, {
+    axios.post(`${process.env.REACT_APP_API}/app`, {
+      topic: 'draw',
       data: {
         "repeat": 2,
         "draw": [
