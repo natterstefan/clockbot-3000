@@ -122,14 +122,16 @@ function App() {
           <button onClick={onClick}>Turn {power ? 'Off' : 'On'}</button>
           <button onClick={onDraw}>Show #rockit</button>
           <button onClick={onShowAnalogClock}>Show analog clock</button>
+        </div>
+        <div className="buttons">
           <button onClick={onJoke}>Tell me a joke</button>
+          <button onClick={onSpotify}>What am I listening to?</button>
         </div>
         <h2>Enter Text and Send to Clock</h2>
         <input type="text" value={text} onChange={onChange} />
         <div className="buttons">
           <button onClick={onSend}>Send Text</button>
           <button onClick={onAnimateText}>Animate text</button>
-          <button onClick={onSpotify}>What am I listening to?</button>
         </div>
         <div className="footer">
           created with ♥ by <a href="http://bit.ly/2X8YIsc" rel="noopener noreferrer" target="_blank">Team Awesome3000</a>

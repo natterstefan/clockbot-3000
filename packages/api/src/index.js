@@ -46,18 +46,18 @@ app.post('/app', (request, res) => {
       break
 
     case 'song':
-        client.publish(
-          process.env.TOPIC_APP,
-          JSON.stringify({
-            name: process.env.TOPIC_APP,
-            force: true,
-            icon: 368, // music icon
-            text: request.body.data,
-            color: [0, 255, 0],
-            count: 1,
-          }),
-        )
-        break
+      client.publish(
+        process.env.TOPIC_APP,
+        JSON.stringify({
+          name: process.env.TOPIC_APP,
+          force: true,
+          icon: 368, // music icon
+          text: request.body.data,
+          color: [0, 255, 0],
+          count: 1,
+        }),
+      )
+      break
 
     case 'draw':
       client.publish(process.env.TOPIC_DRAW, JSON.stringify(request.body.data))
@@ -108,7 +108,7 @@ app.post(
     client.publish(process.env.TOPIC_APP, JSON.stringify({ text: req.joke }))
     res.send({
       status: 'OK',
-})
+    })
   },
 )
 
