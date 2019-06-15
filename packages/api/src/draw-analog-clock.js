@@ -37,12 +37,12 @@ module.exports = function drawAnalogClock() {
       position: getPos(center[0], center[1]),
       color: [255, 255, 255],
     },
+    drawHand({ value: now.getMinutes() / 60, length: 2, color: [0, 255, 0] }),
     drawHand({
       value: (now.getHours() % 12) / 12,
       length: 1,
       color: [0, 0, 255],
     }),
-    drawHand({ value: now.getMinutes() / 60, length: 2, color: [0, 255, 0] }),
     {
       type: 'show',
     },
