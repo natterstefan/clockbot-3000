@@ -1,6 +1,7 @@
 # Clockbot 3000
 
 [![ummahüsla 2019 badge](https://img.shields.io/badge/ummah%C3%BCsla%202019-hackathon-brightgreen.svg)](https://uh19.diin.io/)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
 [![GitHub license](https://img.shields.io/github/license/natterstefan/clockbot-3000.svg)](https://github.com/natterstefan/clockbot-3000/blob/master/LICENCE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/natterstefan/clockbot-3000.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/natterstefan/clockbot-3000%20%23ummahüsla)
 
@@ -68,3 +69,36 @@ Official Clockbot3000 Twitter account: [https://twitter.com/clockbot3000](https:
 ## Licence
 
 [MIT](LICENCE)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://amann.me"><img src="https://avatars1.githubusercontent.com/u/4038316?v=4" width="100px;" alt="Jan Amann"/><br /><sub><b>Jan Amann</b></sub></a><br /><a href="https://github.com/natterstefan/clockbot-3000/commits?author=amannn" title="Code">💻</a> <a href="https://github.com/natterstefan/clockbot-3000/commits?author=amannn" title="Documentation">📖</a> <a href="#ideas-amannn" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/philipheimboeck"><img src="https://avatars0.githubusercontent.com/u/6714855?v=4" width="100px;" alt="Philip Heimböck"/><br /><sub><b>Philip Heimböck</b></sub></a><br /><a href="https://github.com/natterstefan/clockbot-3000/commits?author=philipheimboeck" title="Code">💻</a> <a href="https://github.com/natterstefan/clockbot-3000/commits?author=philipheimboeck" title="Documentation">📖</a> <a href="#ideas-philipheimboeck" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="http://twitter.com/natterstefan"><img src="https://avatars2.githubusercontent.com/u/1043668?v=4" width="100px;" alt="Stefan Natter"/><br /><sub><b>Stefan Natter</b></sub></a><br /><a href="https://github.com/natterstefan/clockbot-3000/commits?author=natterstefan" title="Code">💻</a> <a href="https://github.com/natterstefan/clockbot-3000/commits?author=natterstefan" title="Documentation">📖</a> <a href="#ideas-natterstefan" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/felipep"><img src="https://avatars2.githubusercontent.com/u/358557?v=4" width="100px;" alt="felipep"/><br /><sub><b>felipep</b></sub></a><br /><a href="#ideas-felipep" title="Ideas, Planning, & Feedback">🤔</a> <a href="#talk-felipep" title="Talks">📢</a></td>
+    <td align="center"><a href="https://github.com/barnabasJ"><img src="https://avatars0.githubusercontent.com/u/11669837?v=4" width="100px;" alt="Barnabas Jovanovics"/><br /><sub><b>Barnabas Jovanovics</b></sub></a><br /><a href="#ideas-barnabasJ" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/dornbirndevelops"><img src="https://avatars0.githubusercontent.com/u/25949821?v=4" width="100px;" alt="Alex"/><br /><sub><b>Alex</b></sub></a><br /><a href="#ideas-dornbirndevelops" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+### How to add Contributors
+
+Either with the installed [allcontributors bot](https://allcontributors.org/docs/en/bot/usage)
+or with the [allcontributors cli](https://allcontributors.org/docs/en/cli/installation).
+The cli is already installed and can be [used like this](https://allcontributors.org/docs/en/bot/usage):
+
+```bash
+yarn all-contributors add <username> <emoji-keys>
+```
+
+Emoji Key ✨ (and Contribution Types) are available [here](https://allcontributors.org/docs/en/emoji-key).

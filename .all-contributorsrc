@@ -1,0 +1,76 @@
+{
+  "projectName": "clockbot-3000",
+  "projectOwner": "natterstefan",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "eslint",
+  "contributors": [
+    {
+      "login": "natterstefan",
+      "name": "Stefan Natter",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1043668?v=4",
+      "profile": "http://twitter.com/natterstefan",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas"
+      ]
+    },
+    {
+      "login": "amannn",
+      "name": "Jan Amann",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/4038316?v=4",
+      "profile": "https://amann.me",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas"
+      ]
+    },
+    {
+      "login": "philipheimboeck",
+      "name": "Philip Heimböck",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6714855?v=4",
+      "profile": "https://github.com/philipheimboeck",
+      "contributions": [
+        "code",
+        "ideas",
+        "doc"
+      ]
+    },
+    {
+      "login": "felipep",
+      "name": "felipep",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/358557?v=4",
+      "profile": "https://github.com/felipep",
+      "contributions": [
+        "talk",
+        "ideas"
+      ]
+    },
+    {
+      "login": "barnabasJ",
+      "name": "Barnabas Jovanovics",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/11669837?v=4",
+      "profile": "https://github.com/barnabasJ",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "dornbirndevelops",
+      "name": "Alex",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/25949821?v=4",
+      "profile": "https://github.com/dornbirndevelops",
+      "contributions": [
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 6
+}
