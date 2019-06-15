@@ -1,6 +1,6 @@
 # Clockbot 3000
 
-[![ummahüsla 2019 badge](https://img.shields.io/badge/umah%C3%BCsla%202018-hackathon-brightgreen.svg)](https://uh18.diin.io/)
+[![ummahüsla 2019 badge](https://img.shields.io/badge/ummah%C3%BCsla%202019-hackathon-brightgreen.svg)](https://uh19.diin.io/)
 [![GitHub license](https://img.shields.io/github/license/natterstefan/clockbot-3000.svg)](https://github.com/natterstefan/clockbot-3000/blob/master/LICENCE)
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/natterstefan/clockbot-3000.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/natterstefan/clockbot-3000%20%23ummahüsla)
 
@@ -60,3 +60,11 @@ cd src/app && yarn start
 # sends a message (in this case "hello") from the terminal to the mqtt broker
 cd src/node && node index hello
 ```
+
+## Twitter
+
+Official Clockbot3000 Twitter account: [https://twitter.com/clockbot3000](https://twitter.com/clockbot3000)
+
+## Licence
+
+[MIT](LICENCE)
