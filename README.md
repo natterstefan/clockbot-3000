@@ -15,19 +15,8 @@ Install main dependencies
 yarn
 ```
 
-Setup the react app with:
-
-```bash
-cd src/app
-yarn
-```
-
-Setup the node app with:
-
-```bash
-cd src/node
-yarn
-```
+[Lerna](https://github.com/lerna/lerna) will install all dependencies in the
+packages (eg. [react app](./packages/app)) for you.
 
 ## AWTRIX 2.0
 
@@ -49,7 +38,9 @@ the IPs in the `.env` files:
 - [.env.example for app](src/app/.env.example)
 - [.env.example for node](src/node/.env.example)
 
-Now, start the node app and react server:
+Now, start the node app and react server with `yarn start`. Lerna will then
+start all packages with a `start` script. If you want to start them manually,
+execute the following commands.
 
 ```bash
 # receives and logs the messages in the terminal
@@ -57,7 +48,11 @@ cd src/node && node server
 
 # starts the browser app and can send a message to the mqtt broker
 cd src/app && yarn start
+```
 
+You can test if the mqtt broker and server works, by executing:
+
+```bash
 # sends a message (in this case "hello") from the terminal to the mqtt broker
 cd src/node && node index hello
 ```
