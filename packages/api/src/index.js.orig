@@ -108,12 +108,16 @@ app.post(
     client.publish(process.env.TOPIC_APP, JSON.stringify({ text: req.joke }))
     res.send({
       status: 'OK',
-})
+    })
   },
 )
 
 // Run the server!
+<<<<<<< HEAD
 app.listen(8000, err => {
+=======
+app.listen(8001, err => {
+>>>>>>> abec741cde66ef9a9075e938aa3e0ece6c213891
   if (err) {
     throw err
   }
